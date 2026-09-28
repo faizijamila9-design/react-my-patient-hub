@@ -21,9 +21,53 @@ button {
 
 .app-shell {
   display: flex;
-  flex-direction: column;
+  align-items: flex-start;
   gap: 24px;
   padding: 24px;
+  min-height: 100vh;
+}
+
+.app-sidebar {
+  flex: 0 0 240px;
+  position: sticky;
+  top: 24px;
+  padding: 22px 16px;
+  background: #fff;
+  border: 1px solid #e0e5eb;
+  border-radius: 12px;
+}
+
+.app-brand {
+  margin: 0 0 22px;
+  color: #1f3a5f;
+  font-size: 1.35rem;
+}
+
+.app-navigation {
+  display: grid;
+  gap: 8px;
+}
+
+.nav-button {
+  padding: 11px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: #f3f7ff;
+  color: #1f2937;
+  font-weight: 600;
+  text-align: left;
+}
+
+.nav-button:hover,
+.nav-button.active {
+  border-color: #bfd3ff;
+  background: #eaf1ff;
+  color: #174fa6;
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .login-page,
@@ -306,7 +350,23 @@ button {
 
 @media (max-width: 768px) {
   .app-shell {
+    flex-direction: column;
     padding: 16px;
+  }
+
+  .app-sidebar {
+    position: static;
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .app-navigation {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .nav-button {
+    padding: 10px 6px;
+    text-align: center;
   }
 
   .clinic-container {
